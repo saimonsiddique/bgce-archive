@@ -1,0 +1,446 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Constant - BGCE ARCHIVE</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">BGCE ARCHIVE</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/NesoHQ/bgce-archive.git" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>[<strong>Author:</strong> @mdimamhosen, @mahabubulhasibshawon
+<strong>Date:</strong> 2025-04-19
+<strong>Category:</strong> interview-qa/constants
+<strong>Tags:</strong> [go, constants, beginner]
+]</p>
+<h3 id="-constant-কখন-বযবহৃত-হয়"><a class="header" href="#-constant-কখন-বযবহৃত-হয়">📌 <strong>Constant কখন ব্যবহৃত হয়?</strong></a></h3>
+<ul>
+<li>যখন আপনার এমন একটি মান প্রয়োজন যা প্রোগ্রাম চলাকালীন সময়ে কখনোই পরিবর্তন হবে না, তখন constant ব্যবহার করা উচিত।</li>
+<li>এটি সাধারণত magic numbers বা fixed messages/states/states নির্ধারণ করার জন্য ব্যবহৃত হয়।</li>
+</ul>
+<hr />
+<h3 id="-go-build-করার-সময়-constant-কোথায়-যায়"><a class="header" href="#-go-build-করার-সময়-constant-কোথায়-যায়">⚙️ <strong>Go build করার সময় Constant কোথায় যায়?</strong></a></h3>
+<p>Go প্রোগ্রাম build করার সময়, compiler <code>const</code> দিয়ে declared মানগুলোকে <strong>code segment</strong> বা <strong>text segment</strong>-এ রাখে।</p>
+<ul>
+<li><code>const</code> variable গুলো <strong>compile-time</strong>-এ evaluate হয়, অর্থাৎ run-time এ গিয়ে তা আর হিসাব করে না।</li>
+<li>এদের জন্য <strong>memory allocation হয় না heap বা stack-এ</strong>, বরং এরা <strong>program binary-র read-only অংশে</strong> store থাকে।</li>
+<li>এই কারণে constant গুলো <strong>immutable (অপরিবর্তনীয়)</strong> হয় এবং runtime-এ পরিবর্তন করা যায় না।</li>
+</ul>
+<h3 id="-উদাহরণসবরূপ"><a class="header" href="#-উদাহরণসবরূপ">🧠 উদাহরণস্বরূপ:</a></h3>
+<pre><code class="language-go">const PI = 3.14
+</code></pre>
+<ul>
+<li>এই মানটি runtime-এ কোনো memory assign করে রাখবে না।</li>
+<li>বরং যেখানেই <code>PI</code> ব্যবহার করা হবে, সেখানে সরাসরি <code>3.14</code> inject করে দেবে Go compiler।</li>
+</ul>
+<hr />
+<h3 id="-performance-এর-দিক-থেকে-constant-এর-উপকারিতা"><a class="header" href="#-performance-এর-দিক-থেকে-constant-এর-উপকারিতা">🚀 <strong>Performance এর দিক থেকে Constant এর উপকারিতা:</strong></a></h3>
+<ol>
+<li>
+<p><strong>No Memory Overhead:</strong>
+Constant মানের জন্য আলাদা memory allocation হয় না (heap/stack এ না), ফলে এটি memory-efficient।</p>
+</li>
+<li>
+<p><strong>Fast Execution:</strong>
+যেহেতু constant-এর মান compile time-এ জানা থাকে, Go compiler এগুলোকে সরাসরি machine instruction এ transform করে — এতে execution দ্রুত হয়।</p>
+</li>
+<li>
+<p><strong>Safe &amp; Predictable:</strong>
+Constant মান runtime-এ হঠাৎ করে পরিবর্তন হয়ে যাবার ভয় থাকে না, যা bug প্রতিরোধে সাহায্য করে।</p>
+</li>
+</ol>
+<hr />
+<h3 id="-stack-heap-এবং-code-segment--constant-কোথায়"><a class="header" href="#-stack-heap-এবং-code-segment--constant-কোথায়">📍 Stack, Heap, এবং Code Segment – Constant কোথায়?</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Variable Type</th><th>Stored In</th><th>Mutable?</th><th>Allocated at</th></tr></thead><tbody>
+<tr><td><code>var</code></td><td>Stack / Heap</td><td>✅ হ্যাঁ</td><td>Runtime</td></tr>
+<tr><td><code>const</code></td><td>Code Segment</td><td>❌ না</td><td>Compile Time</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h3 id="-যখন-constant-বযবহার-করা-উচিত"><a class="header" href="#-যখন-constant-বযবহার-করা-উচিত">🎯 যখন constant ব্যবহার করা উচিত:</a></h3>
+<ul>
+<li>যখন আপনি এমন কিছু ডেটা ব্যবহার করছেন যা <strong>একই থাকে</strong> পুরো প্রোগ্রাম জুড়ে (যেমন <code>PI</code>, <code>MAX_RETRIES</code>, <code>VERSION</code> ইত্যাদি)</li>
+<li>যখন আপনি এমন মান ব্যবহার করছেন যা <strong>পরিবর্তন করার প্রয়োজন নেই বা করা উচিত নয়</strong></li>
+<li>যখন আপনি <strong>better performance ও memory efficiency</strong> চান</li>
+</ul>
+<hr />
+<h3 id="-ভুল-ধারণা"><a class="header" href="#-ভুল-ধারণা">🛑 ভুল ধারণা:</a></h3>
+<p>অনেকে মনে করে constant মান মানে শুধু number বা string। কিন্তু Go তে constant হিসেবে <code>bool</code>, <code>rune</code>, এবং untyped value-ও ব্যবহার করা যায় — যদিও complex type যেমন slice, map, array constant হিসেবে ব্যবহার করা যায় না।</p>
+<hr />
+<h1 id="constant-rules-নিয়মাবলী"><a class="header" href="#constant-rules-নিয়মাবলী">Constant Rules (নিয়মাবলী)</a></h1>
+<h3 id="1-constant-এর-নাম-সাধারণ-variable-এর-মতোই-rule-follow-করে"><a class="header" href="#1-constant-এর-নাম-সাধারণ-variable-এর-মতোই-rule-follow-করে">1. Constant-এর নাম সাধারণ variable এর মতোই rule follow করে</a></h3>
+<h3 id="2-constant-এর-নাম-সাধারণত-uppercase-অকষরে-লেখা-হয়"><a class="header" href="#2-constant-এর-নাম-সাধারণত-uppercase-অকষরে-লেখা-হয়">2. Constant-এর নাম সাধারণত uppercase অক্ষরে লেখা হয়</a></h3>
+<h3 id="3-constants-ফাংশনের-ভিতর-এবং-বাহির--দুই-জায়গাতেই-ঘোষণা-করা-যায়"><a class="header" href="#3-constants-ফাংশনের-ভিতর-এবং-বাহির--দুই-জায়গাতেই-ঘোষণা-করা-যায়">3. Constants ফাংশনের ভিতর এবং বাহির — দুই জায়গাতেই ঘোষণা করা যায়</a></h3>
+<hr />
+<h2 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
+<h3 id="1-go-তে-constant-বলতে-কী-বোঝায়"><a class="header" href="#1-go-তে-constant-বলতে-কী-বোঝায়">1. <strong>Go-তে constant বলতে কী বোঝায়?</strong></a></h3>
+<p><strong>উত্তর:</strong>
+একটি constant হলো এমন একটি variable যার মান একবার সেট করার পর পরিবর্তন করা যায় না। Constant ঘোষণা করতে <code>const</code> কিওয়ার্ড ব্যবহার করা হয়।</p>
+<p><strong>Code Example:</strong></p>
+<pre><code class="language-go">package main
+import "fmt"
+
+const PI = 3.14
+
+func main() {
+    fmt.Println("The value of PI is:", PI)
+}
+</code></pre>
+<hr />
+<h3 id="2-constant-কি-ফাংশনের-ভিতর-ঘোষণা-করা-যায়"><a class="header" href="#2-constant-কি-ফাংশনের-ভিতর-ঘোষণা-করা-যায়">2. <strong>Constant কি ফাংশনের ভিতর ঘোষণা করা যায়?</strong></a></h3>
+<p><strong>উত্তর:</strong>
+হ্যাঁ, constant ফাংশনের ভিতরেও এবং বাইরেও ঘোষণা করা যায়।</p>
+<p><strong>Code Example:</strong></p>
+<pre><code class="language-go">package main
+import "fmt"
+
+func main() {
+    const GREETING = "Hello, World!"
+    fmt.Println(GREETING)
+}
+</code></pre>
+<hr />
+<h3 id="3-constant-কি-শুধু-সংখযা-রাখে-না-কি-অনয-টাইপও-রাখা-যায়"><a class="header" href="#3-constant-কি-শুধু-সংখযা-রাখে-না-কি-অনয-টাইপও-রাখা-যায়">3. <strong>Constant কি শুধু সংখ্যা রাখে, না কি অন্য টাইপও রাখা যায়?</strong></a></h3>
+<p><strong>উত্তর:</strong>
+Constant শুধু সংখ্যা না, string, boolean, এমনকি character টাইপের মানও রাখতে পারে।</p>
+<p><strong>Code Example:</strong></p>
+<pre><code class="language-go">package main
+import "fmt"
+
+const IS_ACTIVE = true
+const MESSAGE = "Welcome to Go!"
+
+func main() {
+    fmt.Println("Is Active:", IS_ACTIVE)
+    fmt.Println("Message:", MESSAGE)
+}
+</code></pre>
+<hr />
+<h3 id="4-constant-কি-runtime-এ-হিসাব-করে-মান-রাখতে-পারে"><a class="header" href="#4-constant-কি-runtime-এ-হিসাব-করে-মান-রাখতে-পারে">4. <strong>Constant কি runtime-এ হিসাব করে মান রাখতে পারে?</strong></a></h3>
+<p><strong>উত্তর:</strong>
+না, constant-কে এমন মান দিতে হবে যা compile time-এ নির্ধারণ করা যায়।</p>
+<p><strong>Code Example:</strong></p>
+<pre><code class="language-go">package main
+import "fmt"
+
+const VALUE = 10 * 2 // Valid
+
+func main() {
+    fmt.Println("Value:", VALUE)
+}
+</code></pre>
+<hr />
+<h3 id="5-যদি-constant-এর-মান-পরিবরতন-করার-চেষটা-করি-তাহলে-কী-হয়"><a class="header" href="#5-যদি-constant-এর-মান-পরিবরতন-করার-চেষটা-করি-তাহলে-কী-হয়">5. <strong>যদি constant-এর মান পরিবর্তন করার চেষ্টা করি, তাহলে কী হয়?</strong></a></h3>
+<p><strong>উত্তর:</strong>
+যদি আপনি constant-এর মান পরিবর্তনের চেষ্টা করেন, তাহলে compile time-এ error হবে।</p>
+<p><strong>Code Example:</strong></p>
+<pre><code class="language-go">package main
+import "fmt"
+
+const NAME = "John"
+
+func main() {
+    // NAME = "Doe" // Uncommenting this line will cause a compilation error
+    fmt.Println(NAME)
+}
+</code></pre>
+<hr />
+<h3 id="6-constant-কি-expression-এ-বযবহার-করা-যায়"><a class="header" href="#6-constant-কি-expression-এ-বযবহার-করা-যায়">6. <strong>Constant কি expression-এ ব্যবহার করা যায়?</strong></a></h3>
+<p><strong>উত্তর:</strong>
+হ্যাঁ, constant ব্যবহার করে অন্য constant-এর মান হিসাব করা যায়।</p>
+<p><strong>Code Example:</strong></p>
+<pre><code class="language-go">package main
+import "fmt"
+
+const A = 5
+const B = 10
+const SUM = A + B
+
+func main() {
+    fmt.Println("Sum:", SUM)
+}
+</code></pre>
+<hr />
+<h3 id="7-const-এবং-var-এর-মধযে-পারথকয-কী"><a class="header" href="#7-const-এবং-var-এর-মধযে-পারথকয-কী">7. <strong><code>const</code> এবং <code>var</code> এর মধ্যে পার্থক্য কী?</strong></a></h3>
+<p><strong>উত্তর:</strong>
+<code>const</code> ব্যবহার করা হয় এমন মানের জন্য যেটা কখনোই পরিবর্তন হবে না, আর <code>var</code> ব্যবহার করা হয় পরিবর্তনশীল মান রাখার জন্য।</p>
+<p><strong>Code Example:</strong></p>
+<pre><code class="language-go">package main
+import "fmt"
+
+const FIXED = 100
+var changeable = 200
+
+func main() {
+    fmt.Println("Fixed:", FIXED)
+    fmt.Println("Changeable:", changeable)
+    changeable = 300
+    fmt.Println("Updated Changeable:", changeable)
+}
+</code></pre>
+<hr />
+<h3 id="8-constant-কি-array-বা-slice-টাইপের-হতে-পারে"><a class="header" href="#8-constant-কি-array-বা-slice-টাইপের-হতে-পারে">8. <strong>Constant কি array বা slice টাইপের হতে পারে?</strong></a></h3>
+<p><strong>উত্তর:</strong>
+না, constant কখনো array, slice বা map টাইপের হতে পারে না।</p>
+<p><strong>Code Example:</strong></p>
+<pre><code class="language-go">package main
+import "fmt"
+
+func main() {
+    // const ARR = [3]int{1, 2, 3} // This will cause a compilation error
+    fmt.Println("Constants cannot be arrays or slices.")
+}
+</code></pre>
+<hr />
+<h3 id="9-go-তে-constant-কি-export-করা-যায়"><a class="header" href="#9-go-তে-constant-কি-export-করা-যায়">9. <strong>Go-তে constant কি export করা যায়?</strong></a></h3>
+<p><strong>উত্তর:</strong>
+হ্যাঁ, যদি constant-এর নাম uppercase letter দিয়ে শুরু হয়, তাহলে তা exported হয় এবং অন্য প্যাকেজ থেকেও access করা যায়।</p>
+<p><strong>Code Example:</strong></p>
+<pre><code class="language-go">package main
+import "fmt"
+
+const ExportedConstant = "I am exported!"
+
+func main() {
+    fmt.Println(ExportedConstant)
+}
+</code></pre>
+<hr />
+<h3 id="10-go-তে-untyped-constant-কী"><a class="header" href="#10-go-তে-untyped-constant-কী">10. <strong>Go-তে untyped constant কী?</strong></a></h3>
+<p><strong>উত্তর:</strong>
+Untyped constant এমন constant যেটার কোনো নির্দিষ্ট টাইপ নেই যতক্ষণ না তা কোনো variable এ assign করা হয়।</p>
+<p><strong>Code Example:</strong></p>
+<pre><code class="language-go">package main
+import "fmt"
+
+const VALUE = 42
+
+func main() {
+    var x int = VALUE
+    var y float64 = VALUE
+    fmt.Println("x:", x, "y:", y)
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../interview-qna/topic-wise/conditional-statement.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../interview-qna/topic-wise/defer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../interview-qna/topic-wise/conditional-statement.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../interview-qna/topic-wise/defer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
